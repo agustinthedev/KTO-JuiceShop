@@ -11,9 +11,12 @@ class Test:
 
     # Main structure for test
     def startTest(self):
-        # Open browser and save instance on class variable
+        fr = Framework.Framework()
+
+        # Open browser
         url = Util.REGISTER_SITE_URL
-        self.openBrowser(url)
+        fr.startBrowser(url)
+        
 
         # Data that will be used to create the user
         user_email = self.generateEmail()
