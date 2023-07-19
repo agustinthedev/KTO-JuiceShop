@@ -4,6 +4,7 @@ from Util import Util
 from time import sleep
 import random
 import string
+from Util import Framework
 
 class Test:
     browser = ""
@@ -13,14 +14,6 @@ class Test:
         self.browser = webdriver.Chrome()
         self.browser.get(url)
         sleep(3)
-
-    # Generate a valid 12 characters gmail email each time.
-    def generateEmail(self):
-        email = ''
-        for x in range(12):
-            email+=''.join(random.choice(string.ascii_lowercase))
-
-        return email + "@gmail.com"
 
     # Main structure for test
     def startTest(self):

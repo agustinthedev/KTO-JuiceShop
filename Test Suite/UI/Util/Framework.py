@@ -15,8 +15,13 @@ class Framework:
         self.browser.get(url)
         return self.browser
 
+    # Generate a valid 12 characters gmail email each time.
     def generateEmail(self):
-        pass
+        email = ''
+        for x in range(12):
+            email+=''.join(random.choice(string.ascii_lowercase))
+
+        return email + "@gmail.com"
 
     def findElement(self, xpath):
         pass
