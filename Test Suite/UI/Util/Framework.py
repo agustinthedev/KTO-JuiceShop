@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from datetime import datetime
 from time import sleep
 import random
 import string
@@ -12,7 +13,14 @@ class Framework:
         pass
 
     def log(self, text):
-        print(text)
+        now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+        message = f"{now} {text}"
+        print(message)
+
+        with open("util.txt", "a") as file:
+            file.write(message)
+
     
     # Function to start the browser in the desired URL.
     def startBrowser(self, url):
