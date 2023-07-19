@@ -20,7 +20,7 @@ class Test:
     def startTest(self):
         # Initialize framework and log message
         fr = Framework.Framework()
-        fr.log("======================================================")
+        fr.log("====================================================================")
         fr.log(f"Starting execution for test: {self.test_name}")
 
         # Open browser and navigate to Register url
@@ -37,38 +37,45 @@ class Test:
             dismiss_button = self.browser.find_element(By.XPATH, Util.DISMISS_BUTTON_XPATH)
             dismiss_button.click()
 
-            print("Clicking Dismiss button.")
+            fr.log("Clicking Dismiss button.")
         except Exception as e:
-            print("Unable to click Dismiss button. Identifying if other elements are present in order to continue or stop the test.")
+            fr.log("Unable to click Dismiss button. Identifying if other elements are present in order to continue or stop the test.")
             
             try:
                 self.browser.find_element(By.XPATH, Util.REGISTRATION_FORM_DIV_XPATH)
 
-                print("Registration Form DIV element present, continuing.")
+                fr.log("Registration Form DIV element present, continuing.")
             except Exception as e:
-                print("Unable to find Registration Form DIV element, stopping the test.")
+                fr.log("Unable to find Registration Form DIV element, stopping the test.")
                 return False
         
         
         # Identify email input and write user email
+        fr.log("Writing into email input field")
         email_input = self.browser.find_element(By.XPATH, Util.EMAIL_FIELD_XPATH).send_keys(user_email)
         
         # Identify password input and write user password
+        fr.log("Writing into password field")
         passwd_input = self.browser.find_element(By.XPATH, Util.PASSWD_FIELD_XPATH).send_keys(user_password)
 
         # Identify repeat password input and write user password again
+        fr.log("Writing into repeat password field")
         repeat_passwd_input = self.browser.find_element(By.XPATH, Util.REPEAT_PASSWD_FIELD_XPATH).send_keys(user_password)
 
         # Identify security questions element and click it so all options inside dropdown become clickable
+        fr.log("Clicking security question element")
         security_question_element = self.browser.find_element(By.XPATH, Util.SECURITY_QUESTION_ELEMENT_XPATH).click()
 
         # Identify and click security answer option from dropdown
+        fr.log("Clicking the first option for security questions")
         security_question_answers_array = self.browser.find_elements(By.XPATH, Util.SECURITY_QUESTION_ANSWERS_XPATH)[0].click()
 
         # Identify security question answer inpout and provide a valid response
+        fr.log("Writing response of security question into field")
         security_question_answer_input = self.browser.find_element(By.XPATH, Util.SECURITY_QUESTION_ANSWER_XPATH).send_keys("Test valid response")
 
         # Identify and click the Submit button
+        fr.log("Clicking submit button")
         submit_button = self.browser.find_element(By.XPATH, Util.SUBMIT_BUTTON_XPATH).click()
 
         # Get current URL after clicking the Submit button. If URL is login page, registration was successful
@@ -76,19 +83,17 @@ class Test:
         current_url = self.browser.current_url
 
         if current_url == "https://juice-shop.herokuapp.com/#/login":
-            print("=======================================================================")
-            print("Login page reached, registration was successful.")
-            print("Credentials used:")
-            print(f"    User email: {user_email}")
-            print(f"    User password: {user_password}")
-            print("Stopping test.")
-            print("=======================================================================")
+            fr.log("Login page reached, registration was successful.")
+            fr.log("Credentials used:")
+            fr.log(f"    User email: {user_email}")
+            fr.log(f"    User password: {user_password}")
+            fr.log("Stopping test.")
+            fr.log("====================================================================")
             return True
         else:
-            print("=======================================================================")
-            print("Login page not reached, issue detected.")
-            print("Stopping test.")
-            print("=======================================================================")
+            fr.log("Login page not reached, issue detected.")
+            fr.log("Stopping test.")
+            fr.log("====================================================================")
             return False
         
 
