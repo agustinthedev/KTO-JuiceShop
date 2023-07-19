@@ -9,12 +9,6 @@ from Util import Framework
 class Test:
     browser = ""
 
-    # Function to start the browser in the desired URL. Registration page in this case.
-    def openBrowser(self, url):
-        self.browser = webdriver.Chrome()
-        self.browser.get(url)
-        sleep(3)
-
     # Main structure for test
     def startTest(self):
         # Open browser and save instance on class variable
