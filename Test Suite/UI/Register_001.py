@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from Util import Util
 from time import sleep
+import random
+import string
 
 class Test:
     browser = ""
@@ -10,6 +12,13 @@ class Test:
         self.browser = webdriver.Chrome()
         self.browser.get(url)
         sleep(3)
+
+    def generateEmail(self):
+        email = ''
+        for x in range(12):
+            random_email+=''.join(random.choice(string.ascii_lowercase))
+
+        return email + "@gmail.com"
 
     def startTest(self):
         url = Util.REGISTER_SITE_URL
