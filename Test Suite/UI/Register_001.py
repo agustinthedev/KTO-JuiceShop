@@ -29,7 +29,7 @@ class Test:
                 print("Registration Form DIV element present, continuing.")
             except Exception as e:
                 print("Unable to find Registration Form DIV element, stopping the test.")
-                return False
+                return False   
 
         sleep(10)
 
