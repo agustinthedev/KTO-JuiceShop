@@ -19,7 +19,7 @@ class Framework:
         print(message)
 
         with open("util.txt", "a") as file:
-            file.write(message)
+            file.write(message + "\n")
 
     
     # Function to start the browser in the desired URL.

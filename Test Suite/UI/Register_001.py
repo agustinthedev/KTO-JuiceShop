@@ -7,6 +7,7 @@ import string
 from Util import Framework
 
 class Test:
+    test_name = "Register_001 (UI)"
     browser = ""
 
     # Function to start the browser in the desired URL.
@@ -17,7 +18,10 @@ class Test:
 
     # Main structure for test
     def startTest(self):
+        # Initialize framework and log message
         fr = Framework.Framework()
+        fr.log("======================================================")
+        fr.log(f"Starting execution for test: {self.test_name}")
 
         # Open browser and navigate to Register url
         url = Util.REGISTER_SITE_URL
