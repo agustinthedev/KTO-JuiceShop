@@ -11,7 +11,8 @@ class Framework:
 
     def __init__(self):
         pass
-
+    
+    # Logs message to console and also appends it to logs.txt file
     def log(self, text):
         now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
