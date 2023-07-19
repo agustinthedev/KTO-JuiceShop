@@ -16,7 +16,7 @@ class Test:
     def generateEmail(self):
         email = ''
         for x in range(12):
-            random_email+=''.join(random.choice(string.ascii_lowercase))
+            email+=''.join(random.choice(string.ascii_lowercase))
 
         return email + "@gmail.com"
 
@@ -42,6 +42,18 @@ class Test:
         
         email_input = self.browser.find_element(By.XPATH, Util.EMAIL_FIELD_XPATH)
         email_input.send_keys(self.generateEmail())
+
+        passwd_input = self.browser.find_element(By.XPATH, Util.PASSWD_FIELD_XPATH)
+        passwd_input.send_keys("1234567890")
+
+        repeat_passwd_input = self.browser.find_element(By.XPATH, Util.REPEAT_PASSWD_FIELD_XPATH)
+        repeat_passwd_input.send_keys("1234567890")
+
+        security_question_answers_array = self.browser.find_elements(By.XPATH, Util.SECURITY_QUESTION_ANSWERS_XPATH)
+        security_question_answers_array[0].click()
+
+        security_question_answer_input = self.browser.find_element(By.XPATH, Util.SECURITY_QUESTION_ANSWER_XPATH)
+        security_question_answer_input.send_keys("Test valid response")
 
         sleep(10)
 
