@@ -1,5 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from Util import Util
+from time import sleep
 
 class Test:
     browser = ""
@@ -9,4 +11,10 @@ class Test:
         self.browser.get(url)
 
     def startTest(self):
-        pass
+        url = Util.REGISTER_SITE_URL
+        self.openBrowser(url)
+        sleep(10)
+
+
+test = Test()
+test.startTest()
