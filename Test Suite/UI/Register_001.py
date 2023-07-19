@@ -47,38 +47,28 @@ class Test:
         
         
         # Identify email input and write user email
-        email_input = self.browser.find_element(By.XPATH, Util.EMAIL_FIELD_XPATH)
-        email_input.send_keys(user_email)
+        email_input = self.browser.find_element(By.XPATH, Util.EMAIL_FIELD_XPATH).send_keys(user_email)
         
         # Identify password input and write user password
-        passwd_input = self.browser.find_element(By.XPATH, Util.PASSWD_FIELD_XPATH)
-        passwd_input.send_keys(user_password)
+        passwd_input = self.browser.find_element(By.XPATH, Util.PASSWD_FIELD_XPATH).send_keys(user_password)
 
         # Identify repeat password input and write user password again
-        repeat_passwd_input = self.browser.find_element(By.XPATH, Util.REPEAT_PASSWD_FIELD_XPATH)
-        repeat_passwd_input.send_keys(user_password)
+        repeat_passwd_input = self.browser.find_element(By.XPATH, Util.REPEAT_PASSWD_FIELD_XPATH).send_keys(user_password)
 
         # Identify security questions element and click it so all options inside dropdown become clickable
-        security_question_element = self.browser.find_element(By.XPATH, Util.SECURITY_QUESTION_ELEMENT_XPATH)
-        security_question_element.click()
-        sleep(2)
+        security_question_element = self.browser.find_element(By.XPATH, Util.SECURITY_QUESTION_ELEMENT_XPATH).click()
 
         # Identify and click security answer option from dropdown
-        security_question_answers_array = self.browser.find_elements(By.XPATH, Util.SECURITY_QUESTION_ANSWERS_XPATH)
-        security_question_answers_array[0].click()
+        security_question_answers_array = self.browser.find_elements(By.XPATH, Util.SECURITY_QUESTION_ANSWERS_XPATH)[0].click()
 
         # Identify security question answer inpout and provide a valid response
-        security_question_answer_input = self.browser.find_element(By.XPATH, Util.SECURITY_QUESTION_ANSWER_XPATH)
-        security_question_answer_input.send_keys("Test valid response")
-        sleep(2)
+        security_question_answer_input = self.browser.find_element(By.XPATH, Util.SECURITY_QUESTION_ANSWER_XPATH).send_keys("Test valid response")
 
         # Identify and click the Submit button
-        submit_button = self.browser.find_element(By.XPATH, Util.SUBMIT_BUTTON_XPATH)
-        submit_button.click()
-        sleep(2)
+        submit_button = self.browser.find_element(By.XPATH, Util.SUBMIT_BUTTON_XPATH).click()
 
         # Get current URL after clicking the Submit button. If URL is login page, registration was successful
-        
+        sleep(3)
         current_url = self.browser.current_url
 
         if current_url == "https://juice-shop.herokuapp.com/#/login":
