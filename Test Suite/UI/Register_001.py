@@ -1,8 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-def openBrowser(url):
-    pass
+class Test:
+    browser = ""
 
-def startTest():
-    pass
+    def openBrowser(self, url):
+        self.browser = webdriver.Chrome()
+        self.browser.get(url)
+
+    def startTest(self):
+        pass
