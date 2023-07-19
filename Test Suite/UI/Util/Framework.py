@@ -18,7 +18,7 @@ class Framework:
         message = f"{now} {text}"
         print(message)
 
-        with open("util.txt", "a") as file:
+        with open("logs.txt", "a") as file:
             file.write(message + "\n")
 
     
