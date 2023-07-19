@@ -30,4 +30,10 @@ class Framework:
         pass
 
     def clickElement(self, xpath):
-        pass
+        try:
+            element = self.browser.find_element(By.XPATH, xpath)
+            element.click()
+
+            return True
+        except Exception as e:
+            return str(e)
