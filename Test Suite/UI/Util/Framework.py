@@ -10,6 +10,9 @@ class Framework:
 
     def __init__(self):
         pass
+
+    def log(self, text):
+        print(text)
     
     # Function to start the browser in the desired URL.
     def startBrowser(self, url):
@@ -41,3 +44,11 @@ class Framework:
             return True
         except Exception as e:
             return str(e)
+        
+    def sendKeys(self, xpath, keys):
+        element = self.findElement(xpath)
+        if element:
+            self.browser.find_element(By.XPATH, xpath).send_keys(keys)
+            return True
+        else:
+            return False
