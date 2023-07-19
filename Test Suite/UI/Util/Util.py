@@ -31,3 +31,5 @@ SECURITY_QUESTION_ANSWER_XPATH = "//input[@id='securityAnswerControl']"
 13: What's your favorite place to go hiking?
 
 '''
+
+SUBMIT_BUTTON_XPATH = "//button[@id='registerButton']"
