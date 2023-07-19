@@ -28,27 +28,3 @@ class Framework:
             email+=''.join(random.choice(string.ascii_lowercase))
 
         return email + "@gmail.com"
-
-    def findElement(self, xpath):
-        try:
-            element = self.browser.find_element(By.XPATH)
-            return True
-        except Exception:
-            return False
-
-    def clickElement(self, xpath):
-        try:
-            element = self.browser.find_element(By.XPATH, xpath)
-            element.click()
-
-            return True
-        except Exception as e:
-            return str(e)
-        
-    def sendKeys(self, xpath, keys):
-        element = self.findElement(xpath)
-        if element:
-            self.browser.find_element(By.XPATH, xpath).send_keys(keys)
-            return True
-        else:
-            return False

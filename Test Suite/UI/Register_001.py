@@ -9,13 +9,19 @@ from Util import Framework
 class Test:
     browser = ""
 
+    # Function to start the browser in the desired URL.
+    def __startBrowser__(self, url):
+        self.browser = webdriver.Chrome()
+        self.browser.get(url)
+        sleep(3)
+
     # Main structure for test
     def startTest(self):
         fr = Framework.Framework()
 
-        # Open browser
+        # Open browser and navigate to Register url
         url = Util.REGISTER_SITE_URL
-        fr.startBrowser(url)
+        self.__startBrowser__(url)
         
 
         # Data that will be used to create the user
@@ -23,18 +29,6 @@ class Test:
         user_password = "1234567890"
         
         # Try to click the 'Dismiss' button. If not able to, check if registration form element is present, if YES, continue, if NOT, stop test.
-
-        dismiss_button = fr.clickElement(Util.DISMISS_BUTTON_XPATH)
-        if dismiss_button is not True:
-            print("Unable to click Dismiss button. Identifying if other elements are present in order to continue or stop the test.")
-
-            registration_form = fr.findElement(Util.REGISTRATION_FORM_DIV_XPATH)
-            if registration_form:
-                print("Registration Form DIV element present, continuing.")
-            else:
-                print("Unable to find Registration Form DIV element, stopping the test.")
-                return False
-        '''
         try:
             dismiss_button = self.browser.find_element(By.XPATH, Util.DISMISS_BUTTON_XPATH)
             dismiss_button.click()
@@ -50,7 +44,7 @@ class Test:
             except Exception as e:
                 print("Unable to find Registration Form DIV element, stopping the test.")
                 return False
-        '''
+        
         
         # Identify email input and write user email
         email_input = self.browser.find_element(By.XPATH, Util.EMAIL_FIELD_XPATH)
@@ -84,6 +78,7 @@ class Test:
         sleep(2)
 
         # Get current URL after clicking the Submit button. If URL is login page, registration was successful
+        
         current_url = self.browser.current_url
 
         if current_url == "https://juice-shop.herokuapp.com/#/login":
@@ -101,6 +96,7 @@ class Test:
             print("Stopping test.")
             print("=======================================================================")
             return False
+        
 
 '''
 TO DO: Remove calls
