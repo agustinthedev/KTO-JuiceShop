@@ -19,7 +19,7 @@ class Test:
         
 
         # Data that will be used to create the user
-        user_email = self.generateEmail()
+        user_email = fr.generateEmail()
         user_password = "1234567890"
         
         # Try to click the 'Dismiss' button. If not able to, check if registration form element is present, if YES, continue, if NOT, stop test.
@@ -28,6 +28,13 @@ class Test:
         if dismiss_button is not True:
             print("Unable to click Dismiss button. Identifying if other elements are present in order to continue or stop the test.")
 
+            registration_form = fr.findElement(Util.REGISTRATION_FORM_DIV_XPATH)
+            if registration_form:
+                print("Registration Form DIV element present, continuing.")
+            else:
+                print("Unable to find Registration Form DIV element, stopping the test.")
+                return False
+        '''
         try:
             dismiss_button = self.browser.find_element(By.XPATH, Util.DISMISS_BUTTON_XPATH)
             dismiss_button.click()
@@ -42,7 +49,8 @@ class Test:
                 print("Registration Form DIV element present, continuing.")
             except Exception as e:
                 print("Unable to find Registration Form DIV element, stopping the test.")
-                return False  
+                return False
+        '''
         
         # Identify email input and write user email
         email_input = self.browser.find_element(By.XPATH, Util.EMAIL_FIELD_XPATH)
