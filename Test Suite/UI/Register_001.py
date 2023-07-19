@@ -23,6 +23,11 @@ class Test:
         user_password = "1234567890"
         
         # Try to click the 'Dismiss' button. If not able to, check if registration form element is present, if YES, continue, if NOT, stop test.
+
+        dismiss_button = fr.clickElement(Util.DISMISS_BUTTON_XPATH)
+        if dismiss_button is not True:
+            print("Unable to click Dismiss button. Identifying if other elements are present in order to continue or stop the test.")
+
         try:
             dismiss_button = self.browser.find_element(By.XPATH, Util.DISMISS_BUTTON_XPATH)
             dismiss_button.click()
