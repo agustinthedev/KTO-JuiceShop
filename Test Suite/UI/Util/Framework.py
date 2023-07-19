@@ -27,7 +27,11 @@ class Framework:
         return email + "@gmail.com"
 
     def findElement(self, xpath):
-        pass
+        try:
+            element = self.browser.find_element(By.XPATH)
+            return True
+        except Exception:
+            return False
 
     def clickElement(self, xpath):
         try:
