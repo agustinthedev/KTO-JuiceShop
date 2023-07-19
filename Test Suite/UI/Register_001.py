@@ -23,6 +23,9 @@ class Test:
     def startTest(self):
         url = Util.REGISTER_SITE_URL
         self.openBrowser(url)
+
+        user_email = self.generateEmail()
+        user_password = "1234567890"
         
         try:
             dismiss_button = self.browser.find_element(By.XPATH, Util.DISMISS_BUTTON_XPATH)
@@ -41,13 +44,17 @@ class Test:
                 return False  
         
         email_input = self.browser.find_element(By.XPATH, Util.EMAIL_FIELD_XPATH)
-        email_input.send_keys(self.generateEmail())
+        email_input.send_keys(user_email)
 
         passwd_input = self.browser.find_element(By.XPATH, Util.PASSWD_FIELD_XPATH)
-        passwd_input.send_keys("1234567890")
+        passwd_input.send_keys(user_password)
 
         repeat_passwd_input = self.browser.find_element(By.XPATH, Util.REPEAT_PASSWD_FIELD_XPATH)
-        repeat_passwd_input.send_keys("1234567890")
+        repeat_passwd_input.send_keys(user_password)
+
+        security_question_element = self.browser.find_element(By.XPATH, Util.SECURITY_QUESTION_ELEMENT_XPATH)
+        security_question_element.click()
+        sleep(2)
 
         security_question_answers_array = self.browser.find_elements(By.XPATH, Util.SECURITY_QUESTION_ANSWERS_XPATH)
         security_question_answers_array[0].click()
@@ -55,7 +62,28 @@ class Test:
         security_question_answer_input = self.browser.find_element(By.XPATH, Util.SECURITY_QUESTION_ANSWER_XPATH)
         security_question_answer_input.send_keys("Test valid response")
 
-        sleep(10)
+        sleep(2)
+        submit_button = self.browser.find_element(By.XPATH, Util.SUBMIT_BUTTON_XPATH)
+        submit_button.click()
+        sleep(2)
+
+        current_url = self.browser.current_url
+
+        if current_url == "https://juice-shop.herokuapp.com/#/login":
+            print("=======================================================================")
+            print("Login page reached, registration was successful.")
+            print("Credentials used:")
+            print(f"    User email: {user_email}")
+            print(f"    User password: {user_password}")
+            print("Stopping test.")
+            print("=======================================================================")
+            return True
+        else:
+            print("=======================================================================")
+            print("Login page not reached, issue detected.")
+            print("Stopping test.")
+            print("=======================================================================")
+            return False
 
 
 test = Test()
