@@ -38,7 +38,10 @@ class Test:
                 print("Registration Form DIV element present, continuing.")
             except Exception as e:
                 print("Unable to find Registration Form DIV element, stopping the test.")
-                return False   
+                return False  
+        
+        email_input = self.browser.find_element(By.XPATH, Util.EMAIL_FIELD_XPATH)
+        email_input.send_keys(self.generateEmail())
 
         sleep(10)
 
