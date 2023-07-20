@@ -3,3 +3,4 @@ Test Suite/UI/Util/__pycache__/
 Test Suite/API/Util/__pycache__
 logs.txt
 Documentation/Test Cases/UI/.~lock.(TC07) Login_001 - Login happy path.odt#
+Documentation/**/*.odt
