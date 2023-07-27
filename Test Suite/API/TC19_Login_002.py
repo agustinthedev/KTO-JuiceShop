@@ -1,4 +1,4 @@
-from Util import Util, Framework
+from .Util import Util, Framework
 import requests
 import random
 import string
@@ -36,6 +36,3 @@ class Test:
             print("=================================================")
 
             return Framework.getReturnData(True, f"[✔] ({test_name}) Unable to log in using a non-existent email, test passed.")
-    
-test = Test()
-test.startTest()

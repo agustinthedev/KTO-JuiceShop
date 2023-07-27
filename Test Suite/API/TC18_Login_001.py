@@ -1,4 +1,4 @@
-from Util import Util, Framework
+from .Util import Util, Framework
 import requests
 import random
 import string
@@ -58,6 +58,3 @@ class Test:
             print("=================================================")
 
             return Framework.getReturnData(False, f"[✖] ({test_name}) Unable to create a new user, test failed.")
-    
-test = Test()
-test.startTest()
