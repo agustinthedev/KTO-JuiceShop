@@ -70,16 +70,16 @@ class Test:
                 fr.log("Stopping test.")
                 fr.log("====================================================================")
 
-                return fr.getReturnData(True, f"[✔] ({test_name}) Test was able to log into the account, test failed.")
+                return fr.getReturnData(False, f"[✖] ({test_name}) Test was able to log into the account, test failed.")
             else:
-                fr.log("Assuming test wasn't able to log into the account created, test failed.")
+                fr.log("Assuming test wasn't able to log into the account created, test passed.")
                 fr.log("Credentials used:")
                 fr.log(f"    User email: {user_email}")
                 fr.log(f"    User password: {user_password}")
                 fr.log("Stopping test.")
                 fr.log("====================================================================")
 
-                return fr.getReturnData(False, f"[✖] ({test_name}) Assuming test wasn't able to log into the account created, test failed.")
+                return fr.getReturnData(True, f"[✔] ({test_name}) Assuming test wasn't able to log into the account created, test passed.")
 
         else:
             fr.log("Unable to create a brand new account using API, test failed.")
