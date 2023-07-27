@@ -31,7 +31,7 @@ class Test:
         else:
             print("=================================================")
             print(f"Unable to create a new user using an invalid password, test passed.")
-            print(f"Status code: {status_code} || Request URl: {url}")
+            print(f"Status code: {status_code} || Request URL: {url}")
             print("Credentials used:")
             print(f"    User email: {user_email}")
             print(f"    User password: {user_password}")
