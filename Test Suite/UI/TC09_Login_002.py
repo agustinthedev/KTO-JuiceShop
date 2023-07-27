@@ -9,7 +9,7 @@ class Test:
     browser = ""
 
     def startTest(self):
-        test_name = "Login_001 (UI)"
+        test_name = "Login_002 (UI)"
 
         # Initialize framework and log message
         fr = Framework.Framework()
