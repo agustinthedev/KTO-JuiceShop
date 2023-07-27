@@ -6,7 +6,7 @@ import string
 class Test:
     def startTest(self):
         test_name = "Register_002 (API)"
-        user_email = "test123@example"
+        user_email = Framework.generateEmail().replace(".com", "") # Generate random email but replace .com for nothing in order to make it invalid
         user_password = "1234567890"
 
         url = Util.REGISTER_API_URL
