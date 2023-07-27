@@ -10,12 +10,6 @@ class Test:
     test_name = "Register_002 (UI)"
     browser = ""
 
-    # Function to start the browser in the desired URL.
-    def __startBrowser__(self, url):
-        self.browser = webdriver.Chrome()
-        self.browser.get(url)
-        sleep(3)
-
     # Main structure for test
     def startTest(self):
         # Initialize framework and log message
@@ -25,7 +19,7 @@ class Test:
 
         # Open browser and navigate to Register url
         url = Util.REGISTER_SITE_URL
-        self.__startBrowser__(url)
+        self.browser = fr.startBrowser(url)
         
 
         # Data that will be used to create the user
