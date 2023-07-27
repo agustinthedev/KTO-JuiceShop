@@ -95,10 +95,3 @@ class Test:
             fr.log("====================================================================")
 
             return fr.getReturnData(True, f"[✔] ({test_name}) assuming no user was created using invalid password, test passed.")
-        
-
-'''
-TO DO: Remove calls
-'''
-test = Test()
-test.startTest()

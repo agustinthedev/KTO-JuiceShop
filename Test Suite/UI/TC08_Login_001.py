@@ -87,6 +87,3 @@ class Test:
             fr.log("====================================================================")
 
             return fr.getReturnData(False, f"[✖] ({test_name}) Unable to create a brand new account using API, test failed.")
-
-test = Test()
-test.startTest()

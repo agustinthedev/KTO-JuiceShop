@@ -66,6 +66,3 @@ class Test:
             fr.log("====================================================================")
 
             return fr.getReturnData(True, f"[✔] ({test_name}) Assuming test wasn't able to log into the account, test passed.")
-
-test = Test()
-test.startTest()

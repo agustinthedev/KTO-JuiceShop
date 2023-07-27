@@ -93,10 +93,3 @@ class Test:
             fr.log("====================================================================")
             
             return fr.getReturnData(True, f"[✔] ({test_name}) Login page not reached, assuming no account was created using empty password field, test passed.")
-        
-
-'''
-TO DO: Remove calls
-'''
-test = Test()
-test.startTest()

@@ -93,10 +93,3 @@ class Test:
             fr.log("====================================================================")
             
             return fr.getReturnData(False, f"[✖] ({test_name}) Login page not reached, issue detected, test failed.")
-        
-
-'''
-TO DO: Remove calls
-'''
-test = Test()
-test.startTest()
