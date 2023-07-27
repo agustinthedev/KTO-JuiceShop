@@ -87,13 +87,13 @@ class Test:
             fr.log("Stopping test.")
             fr.log("====================================================================")
 
-            return fr.getReturnData(True, f"[✔] ({test_name}) Login page reached, registration was successful, test passed.")
+            return fr.getReturnData(False, f"[✖] ({test_name}) Test was able to create an account using non-matching passwords, test failed.")
         else:
-            fr.log("Login page not reached, issue detected, test failed.")
+            fr.log("Login page not reached, assuming no account was created using non-matching passwords, test passed.")
             fr.log("Stopping test.")
             fr.log("====================================================================")
             
-            return fr.getReturnData(True, f"[✖] ({test_name}) Login page not reached, issue detected, test failed.")
+            return fr.getReturnData(True, f"[✔] ({test_name}) Login page not reached, assuming no account was created using non-matching passwords, test passed.")
         
 
 '''
