@@ -2,6 +2,7 @@ import random
 import string
 from datetime import datetime
 
+# Creates a dictionary with the specified data, logs the message and returns the dictionary
 def getReturnData(passed, message):
     data = {}
     data["passed"] = passed
@@ -11,6 +12,7 @@ def getReturnData(passed, message):
 
     return data
 
+# Generates and returns a valid random 12-characters email each time it's called
 def generateEmail():
         email = ''
         for x in range(12):
