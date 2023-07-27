@@ -92,7 +92,7 @@ class Test:
             fr.log("Stopping test.")
             fr.log("====================================================================")
             
-            return fr.getReturnData(True, f"[✖] ({test_name}) Login page not reached, issue detected, test failed.")
+            return fr.getReturnData(False, f"[✖] ({test_name}) Login page not reached, issue detected, test failed.")
         
 
 '''
