@@ -1,3 +1,4 @@
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from datetime import datetime
@@ -25,7 +26,7 @@ class Framework:
     
     # Function to start the browser in the desired URL.
     def startBrowser(self, url):
-        self.browser = webdriver.Chrome()
+        self.browser = webdriver.Chrome("C:/chromedriver.exe")
         self.browser.get(url)
         sleep(3)
         return self.browser
