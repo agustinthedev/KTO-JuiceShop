@@ -1,8 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
-from .Util import Util
-from .Util import Framework
+from .Util import Util, Framework
 import requests
 
 class Test:
