@@ -25,3 +25,21 @@ class Test:
         user_password = "123123"
 
         # Create a brand new account that will be used to log in
+        fr.log("Creating account in order to be used to verify log in.")
+        register_url = Util.REGISTER_API_URL
+        register_data = Util.REGISTER_API_PAYLOAD
+
+        register_data["email"] = user_email
+        register_data["password"] = user_password
+
+        request = requests.post(url, json=register_data)
+        status_code = request.status_code
+
+        if status_code == 200 or status_code == 201:
+            pass
+        else:
+            fr.log("Unable to create a brand new account using API, test failed.")
+            fr.log("Stopping test.")
+            fr.log("====================================================================")
+
+            return fr.getReturnData(True, f"[✖] ({test_name}) Unable to create a brand new account using API, test failed.")
