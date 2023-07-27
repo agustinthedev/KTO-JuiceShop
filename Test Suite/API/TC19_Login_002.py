@@ -5,7 +5,7 @@ import string
 
 class Test:
     def startTest(self):
-        test_name = "Login_001 (API)"
+        test_name = "Login_002 (API)"
         user_email = "justatest@testest.net"
         user_password = "1234567890"
 
