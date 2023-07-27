@@ -47,7 +47,7 @@ class Test:
                 print("Stopping test.")
                 print("=================================================")
 
-                return Framework.getReturnData(True, f"[✔] ({test_name}) Unable to log in using the user created previusly, test failed.")
+                return Framework.getReturnData(False, f"[✔] ({test_name}) Unable to log in using the user created previusly, test failed.")
 
         else:
             print("=================================================")
