@@ -52,7 +52,7 @@ Now we're ready. But before executing the suites, you'll need to have the code i
     git clone https://github.com/agustinthedev/KTO-JuiceShop
 In case you don't have git installed, you can manually download the code by clicking in the *Download* button:
 
-![Manually download code from repository](https://i.ibb.co/YcqC7cB/Captura.png)
+![Manually download code from repository](Pictures/DownloadRepo.png)
 
 Once downloaded, just unzip the file and you should have all the code.
 
