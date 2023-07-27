@@ -20,7 +20,7 @@ class Test:
 
         if status_code == 201 or status_code == 200:
             print("=================================================")
-            print("It was possible to create a new user using an invalid email address, test failed.")
+            print("It was possible to create a new user using an invalid email address.")
             print("Credentials used:")
             print(f"    User email: {user_email}")
             print(f"    User password: {user_password}")
@@ -30,7 +30,7 @@ class Test:
             return Framework.getReturnData(False, f"[✖] ({test_name}) User created successfully using invalid email address, test failed.")
         else:
             print("=================================================")
-            print(f"Unable to create a new user using the URL: {url}, test passed.")
+            print(f"Unable to create a new user using the URL: {url}.")
             print(f"Status code: {status_code}")
             print("Credentials used:")
             print(f"    User email: {user_email}")
@@ -39,3 +39,6 @@ class Test:
             print("=================================================")
 
             return Framework.getReturnData(True, f"[✔] ({test_name}) Unable to create a new user using invalid email address, test passed.")
+        
+test = Test()
+test.startTest()
