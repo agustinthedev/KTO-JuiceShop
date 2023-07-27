@@ -33,6 +33,8 @@ class APISuite():
         print("**=====================================================**")
         print("\n\n")
 
+        input("Task finished, press Enter to close...")
+
 
 suite = APISuite()
 suite.startSuite()
