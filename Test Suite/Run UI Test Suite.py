@@ -32,5 +32,7 @@ class UISuite():
         print("**=====================================================**")
         print("\n\n")
 
+        input("Task finished, press Enter to close...")
+
 suite = UISuite()
 suite.startSuite()
