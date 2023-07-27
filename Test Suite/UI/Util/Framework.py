@@ -37,3 +37,12 @@ class Framework:
             email+=''.join(random.choice(string.ascii_lowercase))
 
         return email + "@gmail.com"
+    
+    def getReturnData(self, passed, message):
+        data = {}
+        data["passed"] = passed
+        data["message"] = message
+        
+        self.log(message)
+
+        return data
