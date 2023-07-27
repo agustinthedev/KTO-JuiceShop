@@ -56,7 +56,7 @@ class Test:
             fr.log("Stopping test.")
             fr.log("====================================================================")
 
-            return fr.getReturnData(True, f"[✖] ({test_name}) Test was able to log into the account, test failed.")
+            return fr.getReturnData(False, f"[✖] ({test_name}) Test was able to log into the account, test failed.")
         else:
             fr.log("Assuming test wasn't able to log into the account, test passed.")
             fr.log("Credentials used:")
@@ -65,7 +65,7 @@ class Test:
             fr.log("Stopping test.")
             fr.log("====================================================================")
 
-            return fr.getReturnData(False, f"[✔] ({test_name}) Assuming test wasn't able to log into the account, test passed.")
+            return fr.getReturnData(True, f"[✔] ({test_name}) Assuming test wasn't able to log into the account, test passed.")
 
 test = Test()
 test.startTest()
