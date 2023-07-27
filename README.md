@@ -64,7 +64,7 @@ Get into the **Test Suite** folder and you'll see two files:
  1. *Run API Test Suite*
  2. *Run UI Test Suite*
 
-As their names indicate, each files execute all the test cases from either UI or API category. Once all test cases are executed, you'll receive a quick breakdown of how many test cases were executed in total, how many failed and how many passed.
+As their names indicate, each file executes all the test cases from either UI or API category. Once all test cases are executed, you'll receive a quick breakdown of how many test cases were executed in total, how many failed and how many passed.
 
 You can also check the logs.txt file, where each test case writes detailed information about the execution. This way it's easier to debug in case of any problem.
 
