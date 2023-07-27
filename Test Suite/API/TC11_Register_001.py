@@ -4,12 +4,6 @@ import random
 import string
 
 class Test:
-    def generateEmail(self):
-        email = ''
-        for x in range(12):
-            email+=''.join(random.choice(string.ascii_lowercase))
-
-        return email + "@gmail.com"
     
     def startTest(self):
         user_email = self.generateEmail()
