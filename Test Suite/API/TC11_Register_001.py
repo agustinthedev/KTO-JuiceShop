@@ -1,12 +1,12 @@
-from Util import Util
+from Util import Util, Framework
 import requests
 import random
 import string
 
 class Test:
-    
     def startTest(self):
-        user_email = self.generateEmail()
+        test_name = "Register_001 (API)"
+        user_email = Framework.generateEmail()
         user_password = "1234567890"
 
         url = Util.REGISTER_API_URL
@@ -27,7 +27,7 @@ class Test:
             print("Stopping test.")
             print("=================================================")
 
-            return True
+            return Framework.getReturnData(True, f"[✔] ({test_name}) User created successfully, test passed.")
         else:
             print("=================================================")
             print(f"Unable to create a new user using the URL: {url}")
@@ -36,7 +36,7 @@ class Test:
             print("Stopping test.")
             print("=================================================")
 
-            return False
+            return Framework.getReturnData(False, f"[✖] ({test_name}) Unable to create a new user, test failed.")
     
 test = Test()
 test.startTest()
