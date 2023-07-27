@@ -7,11 +7,12 @@ import string
 from Util import Framework
 
 class Test:
-    test_name = "Register_002 (UI)"
     browser = ""
 
     # Main structure for test
     def startTest(self):
+        test_name = "Register_002 (UI)"
+
         # Initialize framework and log message
         fr = Framework.Framework()
         fr.log("====================================================================")
@@ -77,18 +78,23 @@ class Test:
         current_url = self.browser.current_url
 
         if current_url == "https://juice-shop.herokuapp.com/#/login":
-            fr.log("Login page reached, registration was successful.")
+            fr.log("Login page reached, test was able to register an user using an invalid email address, test failed.")
             fr.log("Credentials used:")
             fr.log(f"    User email: {user_email}")
             fr.log(f"    User password: {user_password}")
             fr.log("Stopping test.")
             fr.log("====================================================================")
-            return True
+
+            return fr.getReturnData(False, f"[✖] ({test_name}) test was able to register an user using an invalid email address, test failed.")
         else:
-            fr.log("Login page not reached, issue detected.")
+            fr.log("Login page not reached, assuming no user was created using invalid email address, test passed.")
+            fr.log("Credentials used:")
+            fr.log(f"    User email: {user_email}")
+            fr.log(f"    User password: {user_password}")
             fr.log("Stopping test.")
             fr.log("====================================================================")
-            return False
+
+            return fr.getReturnData(True, f"[✔] ({test_name}) assuming no user was created using invalid email address, test passed.")
         
 
 '''
