@@ -33,3 +33,17 @@ SECURITY_QUESTION_ANSWER_XPATH = "//input[@id='securityAnswerControl']"
 '''
 
 SUBMIT_BUTTON_XPATH = "//button[@id='registerButton']"
+
+REGISTER_API_URL = "https://juice-shop.herokuapp.com/api/Users/"
+REGISTER_API_PAYLOAD = {
+  "email": "",
+  "password": "",
+  "passwordRepeat": "",
+  "securityQuestion": {
+    "id": 1,
+    "question": "Your eldest siblings middle name?",
+    "createdAt": "2023-07-19T16:46:36.489Z",
+    "updatedAt": "2023-07-19T16:46:36.489Z"
+  },
+  "securityAnswer": "123123"
+}
