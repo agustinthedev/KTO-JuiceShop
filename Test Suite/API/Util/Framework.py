@@ -8,7 +8,7 @@ def getReturnData(passed, message):
 
     return data
 
-def generateEmail(self):
+def generateEmail():
         email = ''
         for x in range(12):
             email+=''.join(random.choice(string.ascii_lowercase))
