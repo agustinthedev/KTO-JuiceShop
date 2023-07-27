@@ -18,7 +18,7 @@ class Test:
         request = requests.post(url, json=data)
         status_code = request.status_code
 
-        if status_code == 201:
+        if status_code == 201 or status_code == 200:
             print("=================================================")
             print("It was possible to create a new user using an invalid email address, test failed.")
             print("Credentials used:")
