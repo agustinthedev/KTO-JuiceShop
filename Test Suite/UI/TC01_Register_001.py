@@ -7,25 +7,20 @@ import string
 from Util import Framework
 
 class Test:
-    test_name = "Register_001 (UI)"
     browser = ""
-
-    # Function to start the browser in the desired URL.
-    def __startBrowser__(self, url):
-        self.browser = webdriver.Chrome()
-        self.browser.get(url)
-        sleep(3)
 
     # Main structure for test
     def startTest(self):
+        test_name = "Register_001 (UI)"
+
         # Initialize framework and log message
         fr = Framework.Framework()
         fr.log("====================================================================")
-        fr.log(f"Starting execution for test: {self.test_name}")
+        fr.log(f"Starting execution for test: {test_name}")
 
         # Open browser and navigate to Register url
         url = Util.REGISTER_SITE_URL
-        self.__startBrowser__(url)
+        self.browser = fr.startBrowser(url)
         
 
         # Data that will be used to create the user
@@ -89,6 +84,7 @@ class Test:
             fr.log(f"    User password: {user_password}")
             fr.log("Stopping test.")
             fr.log("====================================================================")
+
             return True
         else:
             fr.log("Login page not reached, issue detected.")
