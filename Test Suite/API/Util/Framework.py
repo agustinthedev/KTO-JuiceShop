@@ -19,7 +19,7 @@ def generateEmail():
         return email + "@gmail.com"
 
 # Logs message to console and also appends it to logs.txt file
-def log(self, text):
+def log(text):
     now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
     message = f"{now} {text}"
