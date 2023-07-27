@@ -11,7 +11,7 @@ class Test:
 
     # Main structure for test
     def startTest(self):
-        test_name = "Register_005 (UI)"
+        test_name = "Register_006 (UI)"
 
         # Initialize framework and log message
         fr = Framework.Framework()
