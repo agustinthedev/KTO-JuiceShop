@@ -1,10 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from Util import Util
+from .Util import Util
 from time import sleep
 import random
 import string
-from Util import Framework
+from .Util import Framework
 
 class Test:
     browser = ""
