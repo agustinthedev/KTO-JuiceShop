@@ -1,6 +1,6 @@
 import random
 import string
-import datetime
+from datetime import datetime
 
 def getReturnData(passed, message):
     data = {}
@@ -25,5 +25,5 @@ def log(text):
     message = f"{now} {text}"
     print(message)
 
-    with open("logs.txt", "a") as file:
+    with open("logs.txt", "a", encoding="utf-8") as file:
         file.write(message + "\n")
