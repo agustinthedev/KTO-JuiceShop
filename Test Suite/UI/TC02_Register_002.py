@@ -16,7 +16,7 @@ class Test:
         # Initialize framework and log message
         fr = Framework.Framework()
         fr.log("====================================================================")
-        fr.log(f"Starting execution for test: {self.test_name}")
+        fr.log(f"Starting execution for test: {test_name}")
 
         # Open browser and navigate to Register url
         url = Util.REGISTER_SITE_URL
