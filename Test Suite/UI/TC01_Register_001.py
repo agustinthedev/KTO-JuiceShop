@@ -42,7 +42,8 @@ class Test:
                 fr.log("Registration Form DIV element present, continuing.")
             except Exception as e:
                 fr.log("Unable to find Registration Form DIV element, stopping the test.")
-                return False
+                
+                return fr.getReturnData(False, f"[✖] ({test_name}) Unable to find Registration Form DIV element, stopping the test.")
         
         
         # Identify email input and write user email
@@ -78,19 +79,20 @@ class Test:
         current_url = self.browser.current_url
 
         if current_url == "https://juice-shop.herokuapp.com/#/login":
-            fr.log("Login page reached, registration was successful.")
+            fr.log("Login page reached, registration was successful, test passed.")
             fr.log("Credentials used:")
             fr.log(f"    User email: {user_email}")
             fr.log(f"    User password: {user_password}")
             fr.log("Stopping test.")
             fr.log("====================================================================")
 
-            return True
+            return fr.getReturnData(True, f"[✔] ({test_name}) Login page reached, registration was successful, test passed.")
         else:
-            fr.log("Login page not reached, issue detected.")
+            fr.log("Login page not reached, issue detected, test failed.")
             fr.log("Stopping test.")
             fr.log("====================================================================")
-            return False
+            
+            return fr.getReturnData(True, f"[✖] ({test_name}) Login page not reached, issue detected, test failed.")
         
 
 '''
