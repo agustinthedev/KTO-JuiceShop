@@ -12,6 +12,12 @@ REGISTER_API_PAYLOAD = {
   "securityAnswer": "123123"
 }
 
+REGISTER_ADMIN_PAYLOAD = {
+    "email": "",
+    "password": "",
+    "role": "admin"
+}
+
 LOGIN_API_URL = "https://juice-shop.herokuapp.com/rest/user/login"
 LOGIN_API_PAYLOAD = {
     "email": "",
