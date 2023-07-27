@@ -13,29 +13,28 @@ class Test:
         data = Util.REGISTER_API_PAYLOAD
         data["email"] = user_email
         data["password"] = user_password
-        data["passwordRepeat"] = user_password
 
         request = requests.post(url, json=data)
         status_code = request.status_code
 
         if status_code == 201 or status_code == 200:
             print("=================================================")
-            print("It was possible to create a new user using an invalid email address.")
+            print("It was possible to create a new user using with admin role, test failed.")
             print("Credentials used:")
             print(f"    User email: {user_email}")
             print(f"    User password: {user_password}")
             print("Stopping test.")
             print("=================================================")
 
-            return Framework.getReturnData(False, f"[✖] ({test_name}) User created successfully using invalid email address, test failed.")
+            return Framework.getReturnData(False, f"[✖] ({test_name}) It was possible to create a new user using with admin role, test failed.")
         else:
             print("=================================================")
-            print(f"Unable to create a new user using the URL: {url}.")
-            print(f"Status code: {status_code}")
+            print(f"Unable to create a new user with admin role, test passed.")
+            print(f"Status code: {status_code} || URL: {url}")
             print("Credentials used:")
             print(f"    User email: {user_email}")
             print(f"    User password: {user_password}")
             print("Stopping test.")
             print("=================================================")
 
-            return Framework.getReturnData(True, f"[✔] ({test_name}) Unable to create a new user using invalid email address, test passed.")
+            return Framework.getReturnData(True, f"[✔] ({test_name}) Unable to create a new user with admin role, test passed.")
